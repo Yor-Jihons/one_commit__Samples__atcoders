@@ -1,2 +1,2 @@
 # batファイルをC sharpとみなす
-*.bat linguist-language=CSharp
+*.bat linguist-language=Cpp
