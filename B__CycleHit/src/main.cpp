@@ -3,7 +3,7 @@
 #include<sstream>
 #include<algorithm>
 #include<memory>
-#include<limits>
+#include<set>
 
 using namespace std;
 
@@ -84,6 +84,18 @@ namespace Original{
 
 
 int main( int argc, char** argv ){
-    
+    const int max = 4;
+    std::string strs[4];
+    for( int i = 0; i < max; i++ ){
+        cin >> strs[i];
+    }
+
+    std::set<string> pen;
+    for( int i = 0; i < max; i++ ){
+        pen.insert( strs[i] );
+    }
+
+    if( pen.size() == max ) cout << "Yes" << endl;
+    else                    cout << "No" << endl;
 return 0;
 }
