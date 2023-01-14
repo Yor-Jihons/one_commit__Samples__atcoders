@@ -8,3 +8,4 @@ This is a sample so that I can commit this to the GitHub.
 
 - [A__Transfer](./A__Transfer/README.md)
 - [A__FourtuneCookies](./A__FourtuneCookies/REAMDE.md)
+- [B__CycleHit](./B__CycleHit/README.md)
