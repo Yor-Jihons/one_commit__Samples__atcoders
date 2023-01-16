@@ -10,3 +10,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__FourtuneCookies](./A__FourtuneCookies/)
 - [B__CycleHit](./B__CycleHit/)
 - [A__Counting](./A__Counting/)
+- [A__ぼくの学生証](./A__ぼくの学生証/)
