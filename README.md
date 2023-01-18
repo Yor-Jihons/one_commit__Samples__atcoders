@@ -12,3 +12,5 @@ This is a sample so that I can commit this to the GitHub.
 - [A__Counting](./A__Counting/)
 - [A__ぼくの学生証](./A__ぼくの学生証/)
 - [A__Alloy](./A__Alloy/)
+- [A__NewGenerationABC](./A__NewGenerationABC/)
+
