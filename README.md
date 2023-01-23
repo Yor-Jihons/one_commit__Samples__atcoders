@@ -17,3 +17,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__CountDown](./A__CountDown/)
 - [A__Last_Letter](./A__Last_Letter/)
 - [A__ReLU](./A__ReLU/)
+- [B__Pasta](./B__Pasta/)
