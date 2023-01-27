@@ -21,3 +21,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__Century](./A__Century/)
 - [A__Repression](./A__Repression/)
 - [A__2_N](./A__2_N/)
+- [A__Kyu_in_AtCoder](./A__Kyu_in_AtCoder/)
