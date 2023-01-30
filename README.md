@@ -25,3 +25,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__Anyway_Takahashi](./A__Anyway_Takahashi/)
 - [A__Buttons](./A__Buttons/)
 - [A__Payment](./A__Payment/)
+- [B__Savings](./B__Savings/)
