@@ -24,3 +24,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__Kyu_in_AtCoder](./A__Kyu_in_AtCoder/)
 - [A__Anyway_Takahashi](./A__Anyway_Takahashi/)
 - [A__Buttons](./A__Buttons/)
+- [A__Payment](./A__Payment/)
