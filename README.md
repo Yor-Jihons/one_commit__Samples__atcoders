@@ -31,3 +31,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__Poor](./A__Poor/)
 - [A__Blood_Pressure](./A__Blood_Pressure/)
 - [B__AtCoder_Conominium](./B__AtCoder_Conominium/)
+- [B__Can_you_buy_them_all](./B__Can_you_buy_them_all/)
