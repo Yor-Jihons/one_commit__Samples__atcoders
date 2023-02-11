@@ -36,3 +36,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__Integer_Sum](./A__Integer_Sum/)
 - [A__Plus_Minus](./A__Plus_Minus/)
 - [A__aphabet](./A__alphabet/)
+- [A__Plural_Form](./A__Plural_Form/)
