@@ -41,3 +41,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A__ASOKO](./A__ASOKO/)
 - [A__Slot](./A__Slot/)
 - [A__Many_A＋B_Problems](./A__Many_A＋B_Problems/)
+- [A__Shift](./A__Shift/)
