@@ -48,3 +48,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - 教室](./A__教室/)
 - [A - 平均点 (Average Score)](./A__平均点_Average_Score/)
 - [A - SoundHound](./A__SoundHound/)
+- [A - すごろく](./A__すごろく/)
