@@ -50,3 +50,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - SoundHound](./A__SoundHound/)
 - [A - すごろく](./A__すごろく/)
 - [A - Coffee](./A__Coffee/)
+- [A - Power](./A__Power/)
