@@ -53,3 +53,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - Power](./A__Power/)
 - [A - chukodai](./A__chukodai/)
 - [A - スワップ](./A__スワップ/)
+- [A - 差の平均](./A__差の平均/)
