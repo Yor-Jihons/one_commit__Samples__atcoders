@@ -56,3 +56,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - 差の平均](./A__差の平均/)
 - [A - プレミアム会員](./A__プレミアム会員/)
 - [A - ゲーム](./A__ゲーム/)
+- [A - Shampoo](./A__Shampoo/)
