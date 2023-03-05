@@ -57,3 +57,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - プレミアム会員](./A__プレミアム会員/)
 - [A - ゲーム](./A__ゲーム/)
 - [A - Shampoo](./A__Shampoo/)
+- [A - Beginner](./A__Beginner/)
