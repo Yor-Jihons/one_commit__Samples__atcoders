@@ -58,3 +58,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - ゲーム](./A__ゲーム/)
 - [A - Shampoo](./A__Shampoo/)
 - [A - Beginner](./A__Beginner/)
+- [A - Good Integer](./A__Good_Integer/)
