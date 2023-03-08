@@ -60,3 +60,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - Beginner](./A__Beginner/)
 - [A - Good Integer](./A__Good_Integer/)
 - [A - Find Takahashi](./A__Find_Takahashi/)
+- [A - 来月は何月？](./A__来月は何月？/)
