@@ -61,3 +61,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - Good Integer](./A__Good_Integer/)
 - [A - Find Takahashi](./A__Find_Takahashi/)
 - [A - 来月は何月？](./A__来月は何月？/)
+- [A - 帰ってきた器物損壊！高橋君](./A__帰ってきた器物損壊！高橋君/)
