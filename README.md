@@ -64,3 +64,4 @@ This is a sample so that I can commit this to the GitHub.
 - [A - 帰ってきた器物損壊！高橋君](./A__帰ってきた器物損壊！高橋君/)
 - [A - 暗証番号](./A__暗証番号/)
 - [B - Acrostic](./B__Acrostic/)
+- [A - box](./A__box/)
