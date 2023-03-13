@@ -35,3 +35,7 @@ $ testor.exe <INPUTFILE> <OUTPUTFILE>
 <OUTPUTFILE>:
     出力値が書かれているファイル (必須)
 ```
+
+## ライセンス
+
+This is under the MIT license.
