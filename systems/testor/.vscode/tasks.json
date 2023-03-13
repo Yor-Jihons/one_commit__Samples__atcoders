@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create directory bin",
+            "type": "shell",
+            "command": "md",
+            "args": [ "bin", "2>&1" ],
+            "group": "build"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [],
+            "group": "build",
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "${workspaceFolder}/bin/testor",
+            "args": [
+                "${workspaceFolder}/test/input1.txt",
+                "${workspaceFolder}/test/output1.txt"
+            ],
+            "group": "build",
+            "dependsOn": [
+                "build"
+            ]
+        }
+    ]
+}
