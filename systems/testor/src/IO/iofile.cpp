@@ -3,7 +3,7 @@
 namespace Testor::IO{
     std::vector<std::string> ReadAllFile( const std::string& filepath ){
         std::vector<std::string> ret;
-        ret.push_back( "OK" );
+        // TODO: ここでファイルを読み込む
     return ret;
     }
 }
