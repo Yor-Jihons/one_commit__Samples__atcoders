@@ -38,18 +38,20 @@ LDFLAG=-O0
 CFLAG=$(OPTIMIZE) $(CPP_VERSION) $(ICOMMAND)
 
 ## リンクする独自ソースコード
-LINKAGEFILES=$(SRCDIRPATH)\main.o
+LINKAGEFILES=$(SRCDIRPATH)\main.o $(SRCDIRPATH)\IO\iofile.o
 
 #----------------------------------------------------------#
 # コンパイル
 
 ## 対象プロジェクトのコンパイル
 $(TARGET): $(LINKAGEFILES)
-	$(CCX) $(CFLAG) -o $@ $<
+	$(CCX) $(CFLAG) -o $(TARGET) $(LINKAGEFILES)
 
 ## 必要なオブジェクトファイルのコンパイル
-main.o:
-	$(CCX) -c $<
+main.o: main.cpp
+	$(CCX) -c $< -o $@
+$(SRCDIRPATH)\IO\iofile.o: $(SRCDIRPATH)\IO\iofile.cpp
+	$(CCX) -c $< -o $@
 
 #----------------------------------------------------------#
 # 後始末

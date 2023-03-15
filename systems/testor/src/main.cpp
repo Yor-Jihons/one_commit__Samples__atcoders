@@ -4,8 +4,10 @@
 #include<algorithm>
 #include<memory>
 #include<limits>
+#include"IO/iofile.h"
 
 using namespace std;
+using namespace Testor;
 
 
 int main( int argc, char** argv ){
@@ -29,6 +31,10 @@ int main( int argc, char** argv ){
 
     std::string inputFilePath  = argv[1];
     std::string outputFilePath = argv[2];
+
+    std::vector<std::string> input = IO::ReadAllFile( inputFilePath );
+
+    for( int i = 0; i < input.size(); i++ ) cout << input[i] << endl;
 
 return 0;
 }
