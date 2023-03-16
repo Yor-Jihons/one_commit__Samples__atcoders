@@ -16,24 +16,30 @@ int main( int argc, char** argv ){
     // 3. Reads the file as output.
     // 4. Compare the lines with (2) and (3).
         // 4.1. If the lines are diference, quit.
+    try{
 
-    if( argc < 3 ){
-        cout << "[CMD]" << endl;
-        cout << "$ testor <INPUTFILEPATH> <OUTPUTFILEPATH>" << endl;
-        cout << endl;
-        cout << "[ARGUEMNTS]" << endl;
-        cout << "<INPUTFILE>:" << endl;
-        cout << "    Pass the file path as input. (Required)" << endl;
-        cout << "<OUTPUTFILE>:" << endl;
-        cout << "    Pass the file path as output. (Required)" << endl;
-        return -1;
+        // 1. Parses the command-line arguments, then gains the file path as input and output.
+        if( argc < 3 ){
+            cout << "[CMD]" << endl;
+            cout << "$ testor <INPUTFILEPATH> <OUTPUTFILEPATH>" << endl;
+            cout << endl;
+            cout << "[ARGUEMNTS]" << endl;
+            cout << "<INPUTFILE>:" << endl;
+            cout << "    Pass the file path as input. (Required)" << endl;
+            cout << "<OUTPUTFILE>:" << endl;
+            cout << "    Pass the file path as output. (Required)" << endl;
+            return -1;
+        }
+        std::string inputFilePath  = argv[1];
+        std::string outputFilePath = argv[2];
+
+        // 2. Reads the the file as input.
+        auto input = IO::ReadAllFile( inputFilePath );
+
+        for( int i = 0; i < input.size(); i++ ) cout << i << ":" << input[i] << endl;
+
+    }catch( std::exception& e ){
+        cout << e.what() << endl;
     }
-
-    std::string inputFilePath  = argv[1];
-    std::string outputFilePath = argv[2];
-
-    std::vector<std::string> input = IO::ReadAllFile( inputFilePath );
-
-    for( int i = 0; i < input.size(); i++ ) cout << input[i] << endl;
 return 0;
 }

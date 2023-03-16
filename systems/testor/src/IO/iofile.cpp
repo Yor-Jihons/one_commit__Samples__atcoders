@@ -7,7 +7,7 @@ namespace Testor::IO{
         std::ifstream ifs( filepath.c_str() );
 
         // TODO: ファイルが開けなかった系例外
-        if( ifs.fail() ) throw std::exception("X");
+        if( ifs.fail() ) throw std::exception();
 
         std::vector<std::string> ret;
 
