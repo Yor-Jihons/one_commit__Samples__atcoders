@@ -33,10 +33,12 @@ int main( int argc, char** argv ){
         std::string inputFilePath  = argv[1];
         std::string outputFilePath = argv[2];
 
-        // 2. Reads the the file as input.
+        // 2. Reads the file as input.
         auto input = IO::ReadAllFile( inputFilePath );
 
-        for( int i = 0; i < input.size(); i++ ) cout << i << ":" << input[i] << endl;
+        // 3. Reads the file as input.
+        auto output = IO::ReadAllFile( outputFilePath );
+
 
     }catch( std::exception& e ){
         cout << e.what() << endl;
