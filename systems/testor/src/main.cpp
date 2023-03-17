@@ -40,6 +40,10 @@ int main( int argc, char** argv ){
         //auto input = IO::ReadAllFile( inputFilePath );
         auto actuals = Processes::RunProcess( Processes::Process::CreateCmd( cmd, inputFilePath ) );
 
+        for( int i = 0; i < actuals.size(); i++ ){
+            cout <<  i << ":" << actuals[i] << endl;
+        }
+
         // 3. Reads the file as input.
         auto expected = IO::ReadAllFile( outputFilePath );
 

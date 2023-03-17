@@ -35,7 +35,7 @@ namespace Testor::Processes{
 
     std::string Process::CreateCmd( const std::string& cmd, const std::string& inputfilepath ){
         std::stringstream ss;
-        ss << cmd << " " << inputfilepath;
+        ss << cmd << " < " << inputfilepath;
     return ss.str();
     }
 
