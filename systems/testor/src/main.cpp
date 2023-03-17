@@ -19,23 +19,26 @@ int main( int argc, char** argv ){
         // 4.1. If the lines are diference, quit.
     try{
         // 1. Parses the command-line arguments, then gains the file path as input and output.
-        if( argc < 3 ){
+        if( argc < 4 ){
             cout << "[CMD]" << endl;
-            cout << "$ testor <INPUTFILEPATH> <OUTPUTFILEPATH>" << endl;
+            cout << "$ testor <CMD> <INPUTFILEPATH> <OUTPUTFILEPATH>" << endl;
             cout << endl;
             cout << "[ARGUEMNTS]" << endl;
+            cout << "<CMD>:" << endl;
+            cout << "    Pass the path of the executive file which you want to run. (Required)" << endl;
             cout << "<INPUTFILE>:" << endl;
             cout << "    Pass the file path as input. (Required)" << endl;
             cout << "<OUTPUTFILE>:" << endl;
             cout << "    Pass the file path as output. (Required)" << endl;
             return -1;
         }
-        std::string inputFilePath  = argv[1];
-        std::string outputFilePath = argv[2];
+        std::string cmd            = argv[1];
+        std::string inputFilePath  = argv[2];
+        std::string outputFilePath = argv[3];
 
         // 2. Reads the file as input.
         //auto input = IO::ReadAllFile( inputFilePath );
-        auto actuals = Processes::RunProcess( Processes::Process::CreateCmd( "..\\bin\\Main.exe", inputFilePath ) );
+        auto actuals = Processes::RunProcess( Processes::Process::CreateCmd( cmd, inputFilePath ) );
 
         // 3. Reads the file as input.
         auto expected = IO::ReadAllFile( outputFilePath );
