@@ -5,6 +5,7 @@
 #include<memory>
 #include<limits>
 #include"IO/iofile.h"
+#include"Processes/process.h"
 
 using namespace std;
 using namespace Testor;
@@ -17,7 +18,6 @@ int main( int argc, char** argv ){
     // 4. Compare the lines with (2) and (3).
         // 4.1. If the lines are diference, quit.
     try{
-
         // 1. Parses the command-line arguments, then gains the file path as input and output.
         if( argc < 3 ){
             cout << "[CMD]" << endl;
@@ -34,10 +34,11 @@ int main( int argc, char** argv ){
         std::string outputFilePath = argv[2];
 
         // 2. Reads the file as input.
-        auto input = IO::ReadAllFile( inputFilePath );
+        //auto input = IO::ReadAllFile( inputFilePath );
+        auto actuals = Processes::RunProcess( Processes::Process::CreateCmd( "..\\bin\\Main.exe", inputFilePath ) );
 
         // 3. Reads the file as input.
-        auto output = IO::ReadAllFile( outputFilePath );
+        auto expected = IO::ReadAllFile( outputFilePath );
 
 
     }catch( std::exception& e ){

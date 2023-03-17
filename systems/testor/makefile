@@ -38,7 +38,7 @@ LDFLAG=-O0
 CFLAG=$(OPTIMIZE) $(CPP_VERSION) $(ICOMMAND)
 
 ## リンクする独自ソースコード
-LINKAGEFILES=$(SRCDIRPATH)\main.o $(SRCDIRPATH)\IO\iofile.o
+LINKAGEFILES=$(SRCDIRPATH)\main.o $(SRCDIRPATH)\IO\iofile.o $(SRCDIRPATH)\Processes\process.o
 
 #----------------------------------------------------------#
 # コンパイル
@@ -51,6 +51,8 @@ $(TARGET): $(LINKAGEFILES)
 main.o: main.cpp
 	$(CCX) -c $< -o $@
 $(SRCDIRPATH)\IO\iofile.o: $(SRCDIRPATH)\IO\iofile.cpp
+	$(CCX) -c $< -o $@
+$(SRCDIRPATH)\Processes\process.o: $(SRCDIRPATH)\Processes\process.cpp
 	$(CCX) -c $< -o $@
 
 #----------------------------------------------------------#
