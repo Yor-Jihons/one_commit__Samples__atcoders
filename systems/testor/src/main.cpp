@@ -12,11 +12,6 @@ using namespace Testor;
 
 
 int main( int argc, char** argv ){
-    // // 1. Parses the command-line arguments, then gains the file-paths as Input and Output.
-    // 2. Reads the file as input.
-    // 3. Reads the file as output.
-    // 4. Compare the lines with (2) and (3).
-        // 4.1. If the lines are diference, quit.
     try{
         // 1. Parses the command-line arguments, then gains the file path as input and output.
         if( argc < 4 ){
@@ -43,6 +38,19 @@ int main( int argc, char** argv ){
         // 3. Reads the file as input.
         auto expected = IO::ReadAllFile( outputFilePath );
 
+        // 4. Compare (2) and (3).
+        if( actuals.size() != expected.size() ){
+            cout << "Error" << endl;
+            return -1;
+        }
+        for( int i = 0; i < static_cast<int>(actuals.size()); i++ ){
+            if( actuals[i].compare( expected[i] ) != 0 ){
+                cout << actuals[i] << "," << expected[i] << "," << endl;
+                return -1;
+            }
+        }
+
+        cout << "OK" << endl;
 
     }catch( std::exception& e ){
         cout << e.what() << endl;

@@ -46,7 +46,7 @@ namespace Testor::Processes{
         while( !process->IsFeof() ){
             std::string out;
             if( process->FetchStdOutValue( out ) ){
-                ret.push_back( out );
+                ret.push_back( out.replace( out.size() - 1, 1, "" ) );
             }
         }
     return ret;
