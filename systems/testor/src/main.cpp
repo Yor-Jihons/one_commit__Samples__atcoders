@@ -18,12 +18,7 @@ int main( int argc, char** argv ){
         // 1. Parses the command-line arguments, then gains the file path as input and output.
         auto cmdline = CommandLines::CmdLine::Create( argc, argv );
 
-        cout << "CMD    : " << cmdline->Cmd() << endl;
-        cout << "INPUT  : " << cmdline->InputFilePath() << endl;
-        cout << "OUTPUT : " << cmdline->OutputFilePath() << endl;
-
         // 2. Reads the file as input.
-        //auto input = IO::ReadAllFile( inputFilePath );
         auto actuals = Processes::RunProcess( Processes::Process::CreateCmd( cmdline->Cmd(), cmdline->InputFilePath() ) );
 
         // 3. Reads the file as input.
