@@ -1,13 +1,13 @@
 #include"iofile.h"
 #include<fstream>
 #include<iostream>
+#include"../Exceptions/fileopenexception.h"
 
 namespace Testor::IO{
     std::vector<std::string> ReadAllFile( const std::string& filepath ){
         std::ifstream ifs( filepath.c_str() );
 
-        // TODO: ファイルが開けなかった系例外
-        if( ifs.fail() ) throw std::exception();
+        if( ifs.fail() ) throw Exceptions::FileOpenException( "Cannot open the file \"" + filepath + "\"."  );
 
         std::vector<std::string> ret;
 
