@@ -6,6 +6,8 @@
 #include<limits>
 #include"IO/iofile.h"
 #include"Processes/process.h"
+#include"Exceptions/cmdargsparsingexception.h"
+#include"CommandLines/cmdline.h"
 
 using namespace std;
 using namespace Testor;
@@ -30,6 +32,12 @@ int main( int argc, char** argv ){
         std::string cmd            = argv[1];
         std::string inputFilePath  = argv[2];
         std::string outputFilePath = argv[3];
+
+        auto cmdline = CommandLines::CmdLine::Create( argc, argv );
+
+        cout << "CMD    : " << cmdline->Cmd() << endl;
+        cout << "INPUT  : " << cmdline->InputFilePath() << endl;
+        cout << "OUTPUT : " << cmdline->OutputFilePath() << endl;
 
         // 2. Reads the file as input.
         //auto input = IO::ReadAllFile( inputFilePath );
