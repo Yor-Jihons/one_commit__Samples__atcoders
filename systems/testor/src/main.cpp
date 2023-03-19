@@ -25,6 +25,7 @@ int main( int argc, char** argv ){
         auto expected = IO::ReadAllFile( cmdline->OutputFilePath() );
 
         // 4. Compare (2) and (3).
+        // TODO: 関数かクラスとして切り出す
         if( actuals.size() != expected.size() ){
             cout << "Error" << endl;
             return -1;
@@ -35,7 +36,6 @@ int main( int argc, char** argv ){
                 return -1;
             }
         }
-
         cout << "OK" << endl;
 
     }catch( std::exception& e ){
