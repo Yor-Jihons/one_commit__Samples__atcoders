@@ -27,12 +27,12 @@ int main( int argc, char** argv ){
 
         // 4. Compare (2) and (3).
         auto comparer = std::make_unique<Comparision::VectorComparer>( true );
-        if( comparer->Compare( expected, actuals ) ){
-            cout << "OK" << endl;
-        }else{
+        if( !comparer->Compare( expected, actuals ) ){
             cout << "Error" << endl;
             return -2;
         }
+
+        cout << "OK" << endl;
 
     }catch( std::exception& e ){
         cout << e.what() << endl;
