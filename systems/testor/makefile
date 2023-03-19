@@ -39,7 +39,7 @@ CFLAG=$(OPTIMIZE) $(CPP_VERSION) $(ICOMMAND)
 
 ## リンクする独自ソースコード
 LINKAGEFILES=$(SRCDIRPATH)\main.o $(SRCDIRPATH)\IO\iofile.o $(SRCDIRPATH)\Processes\process.o \
-$(SRCDIRPATH)\CommandLines\cmdline.o
+$(SRCDIRPATH)\CommandLines\cmdline.o $(SRCDIRPATH)\Comparision\vectorcomparer.o
 
 #----------------------------------------------------------#
 # コンパイル
@@ -56,6 +56,8 @@ $(SRCDIRPATH)\IO\iofile.o: $(SRCDIRPATH)\IO\iofile.cpp
 $(SRCDIRPATH)\Processes\process.o: $(SRCDIRPATH)\Processes\process.cpp
 	$(CCX) -c $< -o $@
 $(SRCDIRPATH)\CommandLines\cmdline.o: $(SRCDIRPATH)\CommandLines\cmdline.cpp
+	$(CCX) -c $< -o $@
+$(SRCDIRPATH)\Comparision\vectorcomparer.o: $(SRCDIRPATH)\Comparision\vectorcomparer.cpp
 	$(CCX) -c $< -o $@
 
 #----------------------------------------------------------#

@@ -8,6 +8,7 @@
 #include"Processes/process.h"
 #include"Exceptions/cmdargsparsingexception.h"
 #include"CommandLines/cmdline.h"
+#include"Comparision/vectorcomparer.h"
 
 using namespace std;
 using namespace Testor;
@@ -25,21 +26,17 @@ int main( int argc, char** argv ){
         auto expected = IO::ReadAllFile( cmdline->OutputFilePath() );
 
         // 4. Compare (2) and (3).
-        // TODO: 関数かクラスとして切り出す
-        if( actuals.size() != expected.size() ){
+        auto comparer = std::make_unique<Comparision::VectorComparer>( true );
+        if( comparer->Compare( expected, actuals ) ){
+            cout << "OK" << endl;
+        }else{
             cout << "Error" << endl;
-            return -1;
+            return -2;
         }
-        for( int i = 0; i < static_cast<int>(actuals.size()); i++ ){
-            if( actuals[i].compare( expected[i] ) != 0 ){
-                cout << actuals[i] << "," << expected[i] << "," << endl;
-                return -1;
-            }
-        }
-        cout << "OK" << endl;
 
     }catch( std::exception& e ){
         cout << e.what() << endl;
+        return -1;
     }
 return 0;
 }

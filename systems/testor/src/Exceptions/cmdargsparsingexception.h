@@ -5,7 +5,7 @@
 #include<string>
 
 namespace Testor::Exceptions{
-    class CmdArgsParsingException : std::runtime_error{
+    class CmdArgsParsingException : public std::runtime_error{
         public:
             CmdArgsParsingException( const std::string& msg ) : std::runtime_error(msg.c_str()){}
     };
