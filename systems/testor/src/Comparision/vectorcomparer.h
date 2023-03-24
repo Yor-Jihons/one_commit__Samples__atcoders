@@ -1,6 +1,10 @@
 /**
 * @file
 * @brief To compare the expected values and actual values.
+* @license
+* Copyright (c) 2023 Yor-Jihons
+* Released under the MIT license.
+* https://github.com/Yor-Jihons/one_commit__Samples__atcoders/blob/main/systems/testor/LICENSE
 */
 
 #ifndef COMPARISION_COMPARER_H
