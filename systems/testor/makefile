@@ -12,9 +12,10 @@ BINDIRPATH=.\bin
 
 ## 対象のプロジェクト
 TARGET=$(BINDIRPATH)\testor
+TESTOR=$(BINDIRPATH)\test_main
 
 ## 対象リスト
-all: $(TARGET)
+all: $(TARGET) $(TESTOR)
 
 #----------------------------------------------------------#
 # コンパイラ関連の定義
@@ -37,19 +38,26 @@ LDFLAG=-O0
 ## コンパイラフラグ
 CFLAG=$(OPTIMIZE) $(CPP_VERSION) $(ICOMMAND)
 
-## リンクする独自ソースコード
-LINKAGEFILES=$(SRCDIRPATH)\main.o $(SRCDIRPATH)\IO\iofile.o $(SRCDIRPATH)\Processes\process.o \
+COMMON_LINKAGEFILES=$(SRCDIRPATH)\IO\iofile.o $(SRCDIRPATH)\Processes\process.o \
 $(SRCDIRPATH)\CommandLines\cmdline.o $(SRCDIRPATH)\Comparision\vectorcomparer.o
+
+LINKAGEFILES4TARGET=$(SRCDIRPATH)\main.o $(COMMON_LINKAGEFILES)
+LINKAGEFILES4TESTOR=$(SRCDIRPATH)\test_main.o $(COMMON_LINKAGEFILES)
 
 #----------------------------------------------------------#
 # コンパイル
 
 ## 対象プロジェクトのコンパイル
-$(TARGET): $(LINKAGEFILES)
-	$(CCX) $(CFLAG) -o $(TARGET) $(LINKAGEFILES)
+$(TARGET): $(LINKAGEFILES4TARGET)
+	$(CCX) $(CFLAG) -o $(TARGET) $(LINKAGEFILES4TARGET)
+
+$(TESTOR): $(LINKAGEFILES4TESTOR)
+	$(CCX) $(CFLAG) -o $(TESTOR) $(LINKAGEFILES4TESTOR)
 
 ## 必要なオブジェクトファイルのコンパイル
-main.o: main.cpp
+$(SRCDIRPATH)\main.o: $(SRCDIRPATH)\main.cpp
+	$(CCX) -c $< -o $@
+$(SRCDIRPATH)\test_main.o: $(SRCDIRPATH)\test_main.cpp
 	$(CCX) -c $< -o $@
 $(SRCDIRPATH)\IO\iofile.o: $(SRCDIRPATH)\IO\iofile.cpp
 	$(CCX) -c $< -o $@
@@ -65,4 +73,4 @@ $(SRCDIRPATH)\Comparision\vectorcomparer.o: $(SRCDIRPATH)\Comparision\vectorcomp
 
 ## 削除系
 clean:
-	@rm -rf $(LINKAGEFILES) $(TARGET)
+	@rm -rf $(COMMON_LINKAGEFILES) $(TARGET) $(TESTOR) $(SRCDIRPATH)\main.o $(SRCDIRPATH)\test_main.o
