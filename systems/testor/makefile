@@ -1,24 +1,24 @@
 ﻿#----------------------------------------------------------#
-# ディレクトリパス定義
+# Definition of the directory paths
 
-## srcディレクトリ
+## The directory "src".
 SRCDIRPATH=.\src
 
-## 生成する場所の指定
+## The directory you want to create on.
 BINDIRPATH=.\bin
 
 #----------------------------------------------------------#
-# 生成する対象の指定
+# Definition of the target which you compile
 
-## 対象のプロジェクト
+## The target paths
 TARGET=$(BINDIRPATH)\testor
 TESTOR=$(BINDIRPATH)\test_main
 
-## 対象リスト
+## The targets
 all: $(TARGET) $(TESTOR)
 
 #----------------------------------------------------------#
-# コンパイラ関連の定義
+# Definition of the arguments of compilation
 
 ## コンパイラの指定
 CCX=g++
@@ -45,16 +45,17 @@ LINKAGEFILES4TARGET=$(SRCDIRPATH)\main.o $(COMMON_LINKAGEFILES)
 LINKAGEFILES4TESTOR=$(SRCDIRPATH)\test_main.o $(COMMON_LINKAGEFILES)
 
 #----------------------------------------------------------#
-# コンパイル
+# Compilation
 
-## 対象プロジェクトのコンパイル
+## Compile the target
 $(TARGET): $(LINKAGEFILES4TARGET)
 	$(CCX) $(CFLAG) -o $(TARGET) $(LINKAGEFILES4TARGET)
 
+## Compile the testor of this testor
 $(TESTOR): $(LINKAGEFILES4TESTOR)
 	$(CCX) $(CFLAG) -o $(TESTOR) $(LINKAGEFILES4TESTOR)
 
-## 必要なオブジェクトファイルのコンパイル
+
 $(SRCDIRPATH)\main.o: $(SRCDIRPATH)\main.cpp
 	$(CCX) -c $< -o $@
 $(SRCDIRPATH)\test_main.o: $(SRCDIRPATH)\test_main.cpp
@@ -69,7 +70,7 @@ $(SRCDIRPATH)\Comparision\vectorcomparer.o: $(SRCDIRPATH)\Comparision\vectorcomp
 	$(CCX) -c $< -o $@
 
 #----------------------------------------------------------#
-# 独自コマンド
+# Definition of Original commands
 
 .PHONY: test
 test:
