@@ -71,6 +71,8 @@ $(SRCDIRPATH)\Comparision\vectorcomparer.o: $(SRCDIRPATH)\Comparision\vectorcomp
 #----------------------------------------------------------#
 # 後始末
 
+.PHONY: clean
+
 ## 削除系
 clean:
 	@rm -rf $(COMMON_LINKAGEFILES) $(TARGET) $(TESTOR) $(SRCDIRPATH)\main.o $(SRCDIRPATH)\test_main.o
