@@ -76,7 +76,18 @@ $(SRCDIRPATH)\Comparision\vectorcomparer.o: $(SRCDIRPATH)\Comparision\vectorcomp
 test:
 	$(TESTOR)
 
-
 .PHONY: clean
 clean:
-	@rm -rf $(COMMON_LINKAGEFILES) $(TARGET) $(TESTOR) $(SRCDIRPATH)\main.o $(SRCDIRPATH)\test_main.o
+	@rm -rf $(COMMON_LINKAGEFILES) $(SRCDIRPATH)\main.o $(SRCDIRPATH)\test_main.o
+
+
+.PHONY: cleanEx
+cleanEx:
+	@rm $(TARGET) $(TESTOR) $(COMMON_LINKAGEFILES) $(SRCDIRPATH)\main.o $(SRCDIRPATH)\test_main.o
+
+.PHONY: full
+full:
+	@make
+	@make test
+	@make clean
+
