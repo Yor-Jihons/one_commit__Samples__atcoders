@@ -19,12 +19,19 @@ namespace Testor::CommandLines{
     class CmdLine{
         public:
             /**
-            * @brief Creates the object of this class, which was parsed.
+            * @brief Creates the vector of std::string, in order to parse easily.
             * @param argc The number of the arguments.
             * @param argv The command-line arguments.
-            * @return The unique object of this class.
+            * @return The vector of std::string (for the command-line) without the this app path.
             */
-            static std::unique_ptr<CmdLine> Create( int argc, char** argv );
+            static std::vector<std::string> CreateCmdArgs( int argc, char** argv );
+
+            /**
+            * @brief Creates the object of this class, which was parsed.
+            * @param args The vector of std::string (for the command-line) without the this app path.
+            * @return The unique ptr of this class.
+            */
+            static std::unique_ptr<CmdLine> Create( const std::vector<std::string>& args );
 
             /**
             * @brief Constructor.

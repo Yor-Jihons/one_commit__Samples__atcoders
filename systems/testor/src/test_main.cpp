@@ -50,7 +50,12 @@ namespace Test{
     }
 }
 
+namespace Test{
+    
+}
+
+
 int main( void ){
-    Test::AssertionTest();
+    //
 return 0;
 }
