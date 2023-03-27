@@ -17,7 +17,8 @@ using namespace Testor;
 int main( int argc, char** argv ){
     try{
         // 1. Parses the command-line arguments, then gains the file path as input and output.
-        auto cmdline = CommandLines::CmdLine::Create( argc, argv );
+        auto cmdArgs = CommandLines::CmdLine::CreateCmdArgs( argc, argv );
+        auto cmdline = CommandLines::CmdLine::Create( cmdArgs );
 
         // 2. Reads the file as input.
         auto actuals = Processes::RunProcess( Processes::Process::CreateCmd( cmdline->Cmd(), cmdline->InputFilePath() ) );
