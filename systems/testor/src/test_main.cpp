@@ -40,7 +40,7 @@ namespace Assertion{
 }
 
 namespace Test{
-    void AssertionTest(void){
+    void AssertionTest( void ){
         std::string s1 = "xo";
         std::string s2 = "o";
         Assertion::Assert<const std::string&>(s1, s2);
@@ -50,12 +50,26 @@ namespace Test{
     }
 }
 
+// --------------------------------------------------------------------------------------------------------------- //
+
+using std::cout;
+using std::endl;
+using std::flush;
+
 namespace Test{
-    
+    void CreateCmdArgsTest( void ){
+        const char* argv1[] = { "main.exe", "test1", "test2" };
+        auto cmdline1 = Testor::CommandLines::CmdLine::CreateCmdArgs( sizeof(argv1) / sizeof(argv1[0]), const_cast<char**>(argv1) );
+        Assertion::Assert<int>( 3, cmdline1.size() );
+
+        const char* argv2[] = { "main.exe", "english", "japanese", "spanish", "french" };
+        auto cmdline2 = Testor::CommandLines::CmdLine::CreateCmdArgs( sizeof(argv2) / sizeof(argv2[0]), const_cast<char**>(argv2) );
+        Assertion::Assert<int>( 5, cmdline2.size() );
+    }
 }
 
 
 int main( void ){
-    //
+    Test::CreateCmdArgsTest();
 return 0;
 }
