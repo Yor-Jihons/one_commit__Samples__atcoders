@@ -9,7 +9,7 @@ using std::endl;
 
 namespace Testor::CommandLines{
     std::vector<std::string> CmdLine::CreateCmdArgs( int argc, char** argv ){
-        std::vector<std::string> ret( argc - 1 );
+        std::vector<std::string> ret( argc );
         for( int i = 0; i < argc; i++ ){
             ret[i] = std::string(argv[i]);
         }
@@ -17,8 +17,8 @@ namespace Testor::CommandLines{
     }
 
     std::unique_ptr<CmdLine> CmdLine::Create( const std::vector<std::string>& args ){
-        if( args.size() < 3 ) throw Exceptions::CmdArgsParsingException( CmdLine::CreateCmdMessage() );
-    return std::move( std::make_unique<CmdLine>( args[0], args[1], args[2] ) );
+        if( args.size() < 4 ) throw Exceptions::CmdArgsParsingException( CmdLine::CreateCmdMessage() );
+    return std::move( std::make_unique<CmdLine>( args[1], args[2], args[3] ) );
     }
 
     CmdLine::CmdLine( const std::string& cmd, const std::string& inputFilePath, const std::string& outputFilePath )
