@@ -9,3 +9,6 @@ set TEST_MAIN=.\bin\test_main.exe
 
 %TESTOR% .\test\%TARGET% .\test\%TARGET%__input1.txt .\test\%TARGET%__output1.txt
 %TEST_MAIN%
+
+
+%TESTOR%
