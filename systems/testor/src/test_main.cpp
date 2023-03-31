@@ -21,6 +21,8 @@ namespace Assertion{
         std::cout << "Error: " << line << ": Assertion error occured." << std::endl;
         std::cout << "  Expected: " << expected << std::endl;
         std::cout << "  Actual  : " << actual << std::endl;
+
+        std::exit( -1 );
     return;
     }
 
@@ -37,6 +39,7 @@ namespace Assertion{
         std::cout << "Error: " << line << ": Assertion error occured." << std::endl;
         std::cout << "  Expected: " << expected << std::endl;
         std::cout << "  Actual  : " << actual << std::endl;
+        std::exit( -1 );
     return;
     }
 }
@@ -126,6 +129,7 @@ namespace Test{
 
 
 int main( void ){
+    Test::AssertionTest();
     Test::CreateCmdArgsTest();
     Test::CreateCmdLineObjectTest();
 return 0;
