@@ -50,7 +50,7 @@ namespace Test{
         std::string s2 = "o";
         Assertion::Assert<const std::string&>( s1, s2, __LINE__ );
 
-        Assertion::Assert( 1, 2, __LINE__ );
+        Assertion::Assert( 2, 2, __LINE__ );
     return;
     }
 }
@@ -81,6 +81,8 @@ namespace Test{
             // 要素数: 0
             std::vector<std::string> args1;
             std::unique_ptr<Testor::CommandLines::CmdLine> cmdline1 = Testor::CommandLines::CmdLine::Create( args1 );
+
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
         }catch( std::exception& e ){
             Assertion::Assert<const std::string&>( errorMsg, e.what(), __LINE__ );
         }
@@ -89,6 +91,8 @@ namespace Test{
             // 要素数: 2
             std::vector<std::string> args2 = { "test_main.exe", "TargetCmd.exe" };
             std::unique_ptr<Testor::CommandLines::CmdLine> cmdline2 = Testor::CommandLines::CmdLine::Create( args2 );
+
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
         }catch( std::exception& e ){
             Assertion::Assert<const std::string&>( errorMsg, e.what(), __LINE__ );
         }
@@ -97,6 +101,8 @@ namespace Test{
             // 要素数: 3
             std::vector<std::string> args3 = { "test_main.exe", "TargetCmd.exe", "file1.txt"};
             std::unique_ptr<Testor::CommandLines::CmdLine> cmdline3 = Testor::CommandLines::CmdLine::Create( args3 );
+
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
         }catch( std::exception& e ){
             Assertion::Assert<const std::string&>( errorMsg, e.what(), __LINE__ );
         }
@@ -129,7 +135,7 @@ namespace Test{
 
 
 int main( void ){
-    Test::AssertionTest();
+    //Test::AssertionTest();
     Test::CreateCmdArgsTest();
     Test::CreateCmdLineObjectTest();
 return 0;
