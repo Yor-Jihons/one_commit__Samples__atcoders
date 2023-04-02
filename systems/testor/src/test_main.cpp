@@ -5,6 +5,8 @@
 #include"Exceptions/cmdargsparsingexception.h"
 #include"CommandLines/cmdline.h"
 #include"Comparision/vectorcomparer.h"
+#include"Exceptions/fileopenexception.h"
+#include"Exceptions/cmdargsparsingexception.h"
 
 
 namespace Assertion{
@@ -131,6 +133,51 @@ namespace Test{
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
         }
     }
+
+    void ReadingAllFileTest( void ){
+        // ファイルパスが空の場合はExceptions::FileOpenExceptionが投げられる
+        try{
+            std::string filepath1 = "";
+            std::vector<std::string> file1 = Testor::IO::ReadAllFile( filepath1 );
+
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
+        }catch( Testor::Exceptions::FileOpenException& e ){
+            Assertion::Assert<const std::string&>( "Cannot open the file \"\".", e.what(), __LINE__ );
+        }
+
+        // ファイルが開けなかった場合もExceptions::FileOpenExceptionが投げられる
+        try{
+            std::string filepath2 = "hello.pjx";
+            std::vector<std::string> file2 = Testor::IO::ReadAllFile( filepath2 );
+
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
+        }catch( Testor::Exceptions::FileOpenException& e ){
+            Assertion::Assert<const std::string&>( "Cannot open the file \"hello.pjx\".", e.what(), __LINE__ );
+        }
+
+        // ファイルが開けて読み込めた場合は行レベルのvectorが返される
+        try{
+            std::string filepath3 = ".\\test\\A__Many_A_Plus_B_Problems__input1.txt";
+            std::vector<std::string> file3 = Testor::IO::ReadAllFile( filepath3 );
+
+            Assertion::Assert<int>( 5, file3.size(), __LINE__ );
+
+            Assertion::Assert<const std::string&>( "3 5", file3[2 - 1], __LINE__ );
+            Assertion::Assert<const std::string&>( "314159265 123456789", file3[5 - 1], __LINE__ );
+        }catch( Testor::Exceptions::FileOpenException& e ){
+            Assertion::Assert<const std::string&>( "Somthing Wrong", e.what(), __LINE__ );
+        }
+
+        // ファイルが開けて読み込めた場合は行レベルのvectorが返される
+        try{
+            std::string filepath4 = ".\\test\\empty.txt";
+            std::vector<std::string> file4 = Testor::IO::ReadAllFile( filepath4 );
+
+            Assertion::Assert<int>( 0, file4.size(), __LINE__ );
+        }catch( Testor::Exceptions::FileOpenException& e ){
+            Assertion::Assert<const std::string&>( "Somthing Wrong", e.what(), __LINE__ );
+        }
+    }
 }
 
 
@@ -138,5 +185,6 @@ int main( void ){
     //Test::AssertionTest();
     Test::CreateCmdArgsTest();
     Test::CreateCmdLineObjectTest();
+    Test::ReadingAllFileTest();
 return 0;
 }
