@@ -85,7 +85,7 @@ namespace Test{
             std::unique_ptr<Testor::CommandLines::CmdLine> cmdline1 = Testor::CommandLines::CmdLine::Create( args1 );
 
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
-        }catch( std::exception& e ){
+        }catch( Testor::Exceptions::CmdArgsParsingException& e ){
             Assertion::Assert<const std::string&>( errorMsg, e.what(), __LINE__ );
         }
 
@@ -95,7 +95,7 @@ namespace Test{
             std::unique_ptr<Testor::CommandLines::CmdLine> cmdline2 = Testor::CommandLines::CmdLine::Create( args2 );
 
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
-        }catch( std::exception& e ){
+        }catch( Testor::Exceptions::CmdArgsParsingException& e ){
             Assertion::Assert<const std::string&>( errorMsg, e.what(), __LINE__ );
         }
 
@@ -105,7 +105,7 @@ namespace Test{
             std::unique_ptr<Testor::CommandLines::CmdLine> cmdline3 = Testor::CommandLines::CmdLine::Create( args3 );
 
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
-        }catch( std::exception& e ){
+        }catch( Testor::Exceptions::CmdArgsParsingException& e ){
             Assertion::Assert<const std::string&>( errorMsg, e.what(), __LINE__ );
         }
 
@@ -117,7 +117,7 @@ namespace Test{
             Assertion::Assert<const std::string&>( "TargetCmd.exe", cmdline4->Cmd(), __LINE__ );
             Assertion::Assert<const std::string&>( "file1.txt", cmdline4->InputFilePath(), __LINE__ );
             Assertion::Assert<const std::string&>( ".\\bin\\test\\file2.txt", cmdline4->OutputFilePath(), __LINE__ );
-        }catch( std::exception& e ){
+        }catch( Testor::Exceptions::CmdArgsParsingException& e ){
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
         }
 
@@ -129,7 +129,7 @@ namespace Test{
             Assertion::Assert<const std::string&>( "TargetCmd.exe", cmdline5->Cmd(), __LINE__ );
             Assertion::Assert<const std::string&>( "file1.txt", cmdline5->InputFilePath(), __LINE__ );
             Assertion::Assert<const std::string&>( ".\\bin\\test\\file2.txt", cmdline5->OutputFilePath(), __LINE__ );
-        }catch( std::exception& e ){
+        }catch( Testor::Exceptions::CmdArgsParsingException& e ){
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
         }
     }
