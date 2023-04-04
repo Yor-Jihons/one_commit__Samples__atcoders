@@ -23,6 +23,7 @@ namespace Testor::CommandLines{
             * @param argc The number of the arguments.
             * @param argv The command-line arguments.
             * @return The vector of std::string (for the command-line) without the this app path.
+            * @exception Testor::Exceptions::CmdArgsParsingException The cmd-line arguments are wrong.
             */
             static std::vector<std::string> CreateCmdArgs( int argc, char** argv );
 
