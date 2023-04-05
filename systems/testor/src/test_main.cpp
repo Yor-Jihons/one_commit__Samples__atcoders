@@ -44,15 +44,68 @@ namespace Assertion{
         std::exit( -1 );
     return;
     }
+
+    /**
+    * @brief Asserts the data.
+    * @param expected The value you expect.
+    * @param actual The value actually you got.
+    * @param line The number (of the row) which this function called on.
+    */
+    template<>
+    void Assert<bool>( bool expected, bool actual, int line ){
+        if( expected == actual ) return;
+
+        std::cout << "Error: " << line << ": Assertion error occured." << std::endl;
+        std::cout << "  Expected: " << std::boolalpha << expected << std::endl;
+        std::cout << "  Actual  : " << std::boolalpha << actual << std::endl;
+        std::exit( -1 );
+    return;
+    }
+
+    /**
+    * @brief Asserts whether the actual value is true or not.
+    * @param actual The value actually you got.
+    * @param line The number (of the row) which this function called on.
+    */
+    void IsTrue( bool actual, int line ){
+        if( actual ) return;
+
+        std::cout << "Error: " << line << ": Assertion error occured." << std::endl;
+        std::cout << "  Expected: " << std::boolalpha << true << std::endl;
+        std::cout << "  Actual  : " << std::boolalpha << actual << std::endl;
+        std::exit( -1 );
+    return;
+    }
+
+    /**
+    * @brief Asserts whether the actual value is false or not.
+    * @param actual The value actually you got.
+    * @param line The number (of the row) which this function called on.
+    */
+    void IsFalse( bool actual, int line ){
+        if( !actual ) return;
+
+        std::cout << "Error: " << line << ": Assertion error occured." << std::endl;
+        std::cout << "  Expected: " << std::boolalpha << false << std::endl;
+        std::cout << "  Actual  : " << std::boolalpha << actual << std::endl;
+        std::exit( -1 );
+    return;
+    }
 }
 
-namespace Test{
+namespace SimpleTest{
     void AssertionTest( void ){
         std::string s1 = "xo";
-        std::string s2 = "o";
+        std::string s2 = "xo";
         Assertion::Assert<const std::string&>( s1, s2, __LINE__ );
 
         Assertion::Assert( 2, 2, __LINE__ );
+
+        Assertion::Assert<bool>( true, true, __LINE__ );
+
+        Assertion::IsTrue( true, __LINE__ );
+
+        Assertion::IsFalse( false, __LINE__ );
     return;
     }
 }
@@ -182,7 +235,8 @@ namespace Test{
 
 
 int main( void ){
-    //Test::AssertionTest();
+    SimpleTest::AssertionTest();
+
     Test::CreateCmdArgsTest();
     Test::CreateCmdLineObjectTest();
     Test::ReadingAllFileTest();
