@@ -231,6 +231,38 @@ namespace Test{
             Assertion::Assert<const std::string&>( "Somthing Wrong", e.what(), __LINE__ );
         }
     }
+
+    void VectorComparerTest( void ){
+
+        std::vector< std::vector<std::string> > vectors = {
+            { "row1", "row2", "row3" }, // ベース
+            { "row1", "row2" }, // 末尾が削られている
+            { "row1", "row3" }, // 中間値が削られている
+            { "x", "row2", "row3" }, // 0番目の値が間違っている
+            { "row1", "xp", "row3" }, // 1番目の値が間違っている
+            { "row1", "row2\n", "row3" }, // 1番目の値の末尾に改行を示す文字が付いている
+            {}
+        };
+
+        auto vectorComparer1 = std::make_unique<Testor::Comparision::VectorComparer>( false );
+
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[6] := {}
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[6] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[6], vectors[0] ), __LINE__ );
+
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[1] := { "row1", "row2" }
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[1] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[1], vectors[0] ), __LINE__ );
+
+        // TODO: 次回やる対象
+        // 個数が違う + 中間が削られている ×2
+        // 個数は同じだが中身が違う ×3
+        // 一方が改行付き ×2
+    }
 }
 
 
@@ -240,5 +272,7 @@ int main( void ){
     Test::CreateCmdArgsTest();
     Test::CreateCmdLineObjectTest();
     Test::ReadingAllFileTest();
+
+    Test::VectorComparerTest();
 return 0;
 }
