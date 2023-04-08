@@ -264,8 +264,19 @@ namespace Test{
         Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[2] ), __LINE__ );
         Assertion::IsFalse( vectorComparer1->Compare( vectors[2], vectors[0] ), __LINE__ );
 
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[3] := {    "x", "row2", "row3" }
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[3] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[3], vectors[0] ), __LINE__ );
+
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[4] := { "row1",   "xp", "row3" }
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[4] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[4], vectors[0] ), __LINE__ );
+
         // TODO: 次回やる対象
-        // 個数は同じだが中身が違う ×2
         // 一方が改行付き ×2
     }
 }
