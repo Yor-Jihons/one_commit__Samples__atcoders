@@ -241,7 +241,9 @@ namespace Test{
             { "x", "row2", "row3" }, // 0番目の値が間違っている
             { "row1", "xp", "row3" }, // 1番目の値が間違っている
             { "row1", "row2\n", "row3" }, // 1番目の値の末尾に改行を示す文字が付いている
-            {}
+            {}, // 空の状態
+            { "row1", "row2", "row3\n" }, // 2番目の値の末尾に改行を示す文字が付いている
+            { "row1", "row2", "row3" } // 完全一致
         };
 
         auto vectorComparer1 = std::make_unique<Testor::Comparision::VectorComparer>( false );
@@ -264,9 +266,32 @@ namespace Test{
         Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[2] ), __LINE__ );
         Assertion::IsFalse( vectorComparer1->Compare( vectors[2], vectors[0] ), __LINE__ );
 
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[3] := {    "x", "row2", "row3" }
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[3] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[3], vectors[0] ), __LINE__ );
+
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[4] := { "row1",   "xp", "row3" }
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[4] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[4], vectors[0] ), __LINE__ );
+
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[5] := { "row1", "row2\n", "row3" }
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[5] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[5], vectors[0] ), __LINE__ );
+
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[7] := { "row1", "row2", "row3\n" }
+        //     => false
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[7] ), __LINE__ );
+        Assertion::IsFalse( vectorComparer1->Compare( vectors[7], vectors[0] ), __LINE__ );
+
         // TODO: 次回やる対象
-        // 個数は同じだが中身が違う ×2
-        // 一方が改行付き ×2
+        // 値が一致している場合 ×1
     }
 }
 
