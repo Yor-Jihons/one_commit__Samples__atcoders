@@ -296,6 +296,18 @@ namespace Test{
         Assertion::IsTrue( vectorComparer1->Compare( vectors[0], vectors[8] ), __LINE__ );
         Assertion::IsTrue( vectorComparer1->Compare( vectors[8], vectors[0] ), __LINE__ );
     }
+
+    void CmdArgsParsingExceptionTest( void ){
+        try{
+            throw Testor::Exceptions::CmdArgsParsingException("Thrown the exception CmdArgsParsingException.");
+
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
+        }catch( std::exception& e ){
+            Assertion::Assert<const std::string&>( "Thrown the exception CmdArgsParsingException.", e.what(), __LINE__ );
+        }catch( ... ){
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
+        }
+    }
 }
 
 
@@ -307,5 +319,7 @@ int main( void ){
     Test::ReadingAllFileTest();
 
     Test::VectorComparerTest();
+
+    Test::CmdArgsParsingExceptionTest();
 return 0;
 }
