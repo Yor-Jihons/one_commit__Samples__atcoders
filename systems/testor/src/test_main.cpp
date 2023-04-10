@@ -290,8 +290,11 @@ namespace Test{
         Assertion::IsFalse( vectorComparer1->Compare( vectors[0], vectors[7] ), __LINE__ );
         Assertion::IsFalse( vectorComparer1->Compare( vectors[7], vectors[0] ), __LINE__ );
 
-        // TODO: 次回やる対象
-        // 値が一致している場合 ×1
+        // vectors[0] := { "row1", "row2", "row3" }
+        // vectors[8] := { "row1", "row2", "row3" }
+        //     => true
+        Assertion::IsTrue( vectorComparer1->Compare( vectors[0], vectors[8] ), __LINE__ );
+        Assertion::IsTrue( vectorComparer1->Compare( vectors[8], vectors[0] ), __LINE__ );
     }
 }
 
