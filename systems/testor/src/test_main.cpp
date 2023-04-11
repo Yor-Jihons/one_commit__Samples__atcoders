@@ -302,8 +302,20 @@ namespace Test{
             throw Testor::Exceptions::CmdArgsParsingException("Thrown the exception CmdArgsParsingException.");
 
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
-        }catch( std::exception& e ){
+        }catch( std::runtime_error& e ){
             Assertion::Assert<const std::string&>( "Thrown the exception CmdArgsParsingException.", e.what(), __LINE__ );
+        }catch( ... ){
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
+        }
+    }
+
+    void FileOpenExceptionTest( void ){
+        try{
+            throw Testor::Exceptions::FileOpenException("Thrown the exception FileOpenException.");
+
+            Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
+        }catch( std::runtime_error& e ){
+            Assertion::Assert<const std::string&>( "Thrown the exception FileOpenException.", e.what(), __LINE__ );
         }catch( ... ){
             Assertion::Assert<const std::string&>( "Somthing Wrong", "", __LINE__ );
         }
@@ -321,5 +333,7 @@ int main( void ){
     Test::VectorComparerTest();
 
     Test::CmdArgsParsingExceptionTest();
+
+    Test::FileOpenExceptionTest();
 return 0;
 }
