@@ -22,14 +22,17 @@ $ cd A__test1
 ### Step2. testorを動かす
 
 ```
-$ ..\systems\utils\testor.exe ..\test\input1.txt ..\test\output1.txt
+# 例:
+$ ..\systems\utils\testor.exe ..\test\main.exe　..\test\input1.txt ..\test\output1.txt
 ```
 
 ## コマンドライン引数
 
 ```
-$ testor.exe <INPUTFILE> <OUTPUTFILE>
+$ testor.exe <CMD> <INPUTFILE> <OUTPUTFILE>
 
+<CMD>:
+    テスト対象の実行ファイル(必須)
 <INPUTFILE>:
     入力値が書かれているファイル (必須)
 <OUTPUTFILE>:
