@@ -326,7 +326,7 @@ namespace UnitTests::BlakBoxes{
 }
 
 // ---------------------------------
-// The function main
+// The functions in order to invoke them.
 
 namespace Test{
     namespace UnitTest{
