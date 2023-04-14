@@ -340,6 +340,12 @@ namespace Test{
                 UnitTests::BlakBoxes::FileOpenExceptionTest();
             }
         }
+
+        namespace WhiteBoxTest{
+            void Run( void ){
+                // TODO: ここに追加していく
+            }
+        }
     }
 }
 
@@ -350,5 +356,6 @@ int main( void ){
     SimpleTest::AssertionTest();
 
     Test::UnitTest::BlackBoxTest::Run();
+    Test::UnitTest::WhiteBoxTest::Run();
 return 0;
 }
