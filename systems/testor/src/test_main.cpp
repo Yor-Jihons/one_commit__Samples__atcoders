@@ -119,7 +119,7 @@ using std::flush;
 // ----------------------------------------------------------------------------------------------------------------- //
 // The functions for the unit tests as black-box test.
 
-namespace UnitTest::BlakBox{
+namespace UnitTests::BlakBoxes{
     void CreateCmdArgsTest( void ){
         const char* argv1[] = { "main.exe", "test1", "test2" };
         auto cmdline1 = Testor::CommandLines::CmdLine::CreateCmdArgs( sizeof(argv1) / sizeof(argv1[0]), const_cast<char**>(argv1) );
@@ -328,17 +328,18 @@ namespace UnitTest::BlakBox{
 // ---------------------------------
 // The function main
 
-namespace UnitTest::BlackBox{
-    void Run( void ){
-        UnitTest::BlakBox::CreateCmdArgsTest();
-        UnitTest::BlakBox::CreateCmdLineObjectTest();
-        UnitTest::BlakBox::ReadingAllFileTest();
-
-        UnitTest::BlakBox::VectorComparerTest();
-
-        UnitTest::BlakBox::CmdArgsParsingExceptionTest();
-
-        UnitTest::BlakBox::FileOpenExceptionTest();
+namespace Test{
+    namespace UnitTest{
+        namespace BlackBoxTest{
+            void Run( void ){
+                UnitTests::BlakBoxes::CreateCmdArgsTest();
+                UnitTests::BlakBoxes::CreateCmdLineObjectTest();
+                UnitTests::BlakBoxes::ReadingAllFileTest();
+                UnitTests::BlakBoxes::VectorComparerTest();
+                UnitTests::BlakBoxes::CmdArgsParsingExceptionTest();
+                UnitTests::BlakBoxes::FileOpenExceptionTest();
+            }
+        }
     }
 }
 
@@ -348,6 +349,6 @@ namespace UnitTest::BlackBox{
 int main( void ){
     SimpleTest::AssertionTest();
 
-    UnitTest::BlackBox::Run();
+    Test::UnitTest::BlackBoxTest::Run();
 return 0;
 }
