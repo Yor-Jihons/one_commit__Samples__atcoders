@@ -20,9 +20,8 @@ namespace Testor::Processes{
             /**
             * @brief Constructor.
             * @param cmd The commnd you want to run.
-            * @param allowed2ThrowException Whether this object shows the message when the error occured or not. (def: false)
             */
-            Process( const std::string& cmd, bool allowed2ThrowException = false );
+            Process( const std::string& cmd );
 
             /**
             * @brief Destructor.
