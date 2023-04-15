@@ -5,10 +5,9 @@
 #include<memory>
 
 namespace Testor::Processes{
-    Process::Process( const std::string& cmd, bool allowed2ThrowException ) : fp_(nullptr){
-        this->fp_ = _popen( cmd.c_str(), "r");
-
-        if( allowed2ThrowException && !this->fp_ ) throw std::exception();
+    Process::Process( const std::string& cmd ) : fp_(nullptr){
+        this->fp_ = _popen( cmd.c_str(), "r" );
+        if( this->fp_ == nullptr ) throw std::exception();
     }
 
     Process::~Process(){
@@ -42,7 +41,7 @@ namespace Testor::Processes{
 
     std::vector<std::string> RunProcess( const std::string& cmd ){
         std::vector<std::string> ret;
-        auto process = std::make_unique<Process>( cmd, true );
+        auto process = std::make_unique<Process>( cmd );
         while( !process->IsFeof() ){
             std::string out;
             if( process->FetchStdOutValue( out ) ){
