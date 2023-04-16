@@ -325,6 +325,23 @@ namespace UnitTests::BlakBoxes{
     }
 }
 
+// ----------------------------------------------------------------------------------------------------------------- //
+// The functions for the unit tests as white-box test.
+
+namespace UnitTests::WhiteBoxes{
+    void CreateCmdLineObjectTest( void ){
+        // TODO: CmdLine::Createのテスト
+    }
+
+    void VectorComparerTest( void ){
+        // TODO: VectorComparer::Compareのテスト
+    }
+
+    void ProcessTest( void ){
+        // TODO: Processのテスト
+    }
+}
+
 // ---------------------------------
 // The functions in order to invoke them.
 
@@ -332,18 +349,24 @@ namespace Test{
     namespace UnitTest{
         namespace BlackBoxTest{
             void Run( void ){
-                UnitTests::BlakBoxes::CreateCmdArgsTest();
-                UnitTests::BlakBoxes::CreateCmdLineObjectTest();
-                UnitTests::BlakBoxes::ReadingAllFileTest();
-                UnitTests::BlakBoxes::VectorComparerTest();
-                UnitTests::BlakBoxes::CmdArgsParsingExceptionTest();
-                UnitTests::BlakBoxes::FileOpenExceptionTest();
+                using namespace UnitTests::BlakBoxes;
+
+                CreateCmdArgsTest();
+                CreateCmdLineObjectTest();
+                ReadingAllFileTest();
+                VectorComparerTest();
+                CmdArgsParsingExceptionTest();
+                FileOpenExceptionTest();
             }
         }
 
         namespace WhiteBoxTest{
             void Run( void ){
-                // TODO: ここに追加していく
+                using namespace UnitTests::WhiteBoxes;
+
+                CreateCmdLineObjectTest();
+                VectorComparerTest();
+                ProcessTest();
             }
         }
     }
