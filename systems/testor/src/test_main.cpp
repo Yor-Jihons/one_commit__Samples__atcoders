@@ -325,6 +325,11 @@ namespace UnitTests{
     }
 }
 
+// 結合テストa
+namespace ITa{
+    // TODO: ここで定義
+}
+
 // ---------------------------------
 // The functions in order to invoke them.
 
@@ -341,6 +346,13 @@ namespace Test{
             FileOpenExceptionTest();
         }
     }
+
+    // 結合テストa
+    namespace Interface_test_a{
+        void Run( void ){
+            using namespace ITa;
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -350,5 +362,6 @@ int main( void ){
     SimpleTest::AssertionTest();
 
     Test::UnitTest::Run();
+    Test::Interface_test_a::Run();
 return 0;
 }
