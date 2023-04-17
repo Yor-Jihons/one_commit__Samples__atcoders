@@ -117,7 +117,7 @@ using std::endl;
 using std::flush;
 
 // ----------------------------------------------------------------------------------------------------------------- //
-// The functions for the unit tests as black-box test.
+// The functions for the unit tests.
 
 namespace UnitTests{
     void CreateCmdArgsTest( void ){
@@ -324,6 +324,9 @@ namespace UnitTests{
         }
     }
 }
+
+// ----------------------------------------------------------------------------------------------------------------- //
+// The functions for the Interface tests.(ITa)
 
 // 結合テストa
 namespace ITa{
