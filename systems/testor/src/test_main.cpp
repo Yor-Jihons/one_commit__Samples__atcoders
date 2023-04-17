@@ -119,7 +119,7 @@ using std::flush;
 // ----------------------------------------------------------------------------------------------------------------- //
 // The functions for the unit tests as black-box test.
 
-namespace UnitTests::BlakBoxes{
+namespace UnitTests{
     void CreateCmdArgsTest( void ){
         const char* argv1[] = { "main.exe", "test1", "test2" };
         auto cmdline1 = Testor::CommandLines::CmdLine::CreateCmdArgs( sizeof(argv1) / sizeof(argv1[0]), const_cast<char**>(argv1) );
@@ -325,49 +325,20 @@ namespace UnitTests::BlakBoxes{
     }
 }
 
-// ----------------------------------------------------------------------------------------------------------------- //
-// The functions for the unit tests as white-box test.
-
-namespace UnitTests::WhiteBoxes{
-    void CreateCmdLineObjectTest( void ){
-        // TODO: CmdLine::Createのテスト
-    }
-
-    void VectorComparerTest( void ){
-        // TODO: VectorComparer::Compareのテスト
-    }
-
-    void ProcessTest( void ){
-        // TODO: Processのテスト
-    }
-}
-
 // ---------------------------------
 // The functions in order to invoke them.
 
 namespace Test{
     namespace UnitTest{
-        namespace BlackBoxTest{
-            void Run( void ){
-                using namespace UnitTests::BlakBoxes;
+        void Run( void ){
+            using namespace UnitTests;
 
-                CreateCmdArgsTest();
-                CreateCmdLineObjectTest();
-                ReadingAllFileTest();
-                VectorComparerTest();
-                CmdArgsParsingExceptionTest();
-                FileOpenExceptionTest();
-            }
-        }
-
-        namespace WhiteBoxTest{
-            void Run( void ){
-                using namespace UnitTests::WhiteBoxes;
-
-                CreateCmdLineObjectTest();
-                VectorComparerTest();
-                ProcessTest();
-            }
+            CreateCmdArgsTest();
+            CreateCmdLineObjectTest();
+            ReadingAllFileTest();
+            VectorComparerTest();
+            CmdArgsParsingExceptionTest();
+            FileOpenExceptionTest();
         }
     }
 }
@@ -378,7 +349,6 @@ namespace Test{
 int main( void ){
     SimpleTest::AssertionTest();
 
-    Test::UnitTest::BlackBoxTest::Run();
-    Test::UnitTest::WhiteBoxTest::Run();
+    Test::UnitTest::Run();
 return 0;
 }
