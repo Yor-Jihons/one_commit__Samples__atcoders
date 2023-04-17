@@ -117,9 +117,9 @@ using std::endl;
 using std::flush;
 
 // ----------------------------------------------------------------------------------------------------------------- //
-// The functions for the unit tests as black-box test.
+// The functions for the unit tests.
 
-namespace UnitTests::BlakBoxes{
+namespace UnitTests{
     void CreateCmdArgsTest( void ){
         const char* argv1[] = { "main.exe", "test1", "test2" };
         auto cmdline1 = Testor::CommandLines::CmdLine::CreateCmdArgs( sizeof(argv1) / sizeof(argv1[0]), const_cast<char**>(argv1) );
@@ -326,20 +326,11 @@ namespace UnitTests::BlakBoxes{
 }
 
 // ----------------------------------------------------------------------------------------------------------------- //
-// The functions for the unit tests as white-box test.
+// The functions for the Interface tests.(ITa)
 
-namespace UnitTests::WhiteBoxes{
-    void CreateCmdLineObjectTest( void ){
-        // TODO: CmdLine::Createのテスト
-    }
-
-    void VectorComparerTest( void ){
-        // TODO: VectorComparer::Compareのテスト
-    }
-
-    void ProcessTest( void ){
-        // TODO: Processのテスト
-    }
+// 結合テストa
+namespace ITa{
+    // TODO: ここで定義
 }
 
 // ---------------------------------
@@ -347,27 +338,22 @@ namespace UnitTests::WhiteBoxes{
 
 namespace Test{
     namespace UnitTest{
-        namespace BlackBoxTest{
-            void Run( void ){
-                using namespace UnitTests::BlakBoxes;
+        void Run( void ){
+            using namespace UnitTests;
 
-                CreateCmdArgsTest();
-                CreateCmdLineObjectTest();
-                ReadingAllFileTest();
-                VectorComparerTest();
-                CmdArgsParsingExceptionTest();
-                FileOpenExceptionTest();
-            }
+            CreateCmdArgsTest();
+            CreateCmdLineObjectTest();
+            ReadingAllFileTest();
+            VectorComparerTest();
+            CmdArgsParsingExceptionTest();
+            FileOpenExceptionTest();
         }
+    }
 
-        namespace WhiteBoxTest{
-            void Run( void ){
-                using namespace UnitTests::WhiteBoxes;
-
-                CreateCmdLineObjectTest();
-                VectorComparerTest();
-                ProcessTest();
-            }
+    // 結合テストa
+    namespace Interface_test_a{
+        void Run( void ){
+            using namespace ITa;
         }
     }
 }
@@ -378,7 +364,7 @@ namespace Test{
 int main( void ){
     SimpleTest::AssertionTest();
 
-    Test::UnitTest::BlackBoxTest::Run();
-    Test::UnitTest::WhiteBoxTest::Run();
+    Test::UnitTest::Run();
+    Test::Interface_test_a::Run();
 return 0;
 }
