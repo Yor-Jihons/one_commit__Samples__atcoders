@@ -85,6 +85,10 @@ clean:
 cleanEx:
 	@rm $(TARGET) $(TESTOR) $(COMMON_LINKAGEFILES) $(SRCDIRPATH)\main.o $(SRCDIRPATH)\test_main.o
 
+.PHONY: publish
+publish:
+	cp bin\testor.exe ..\Utils\testor.exe
+
 .PHONY: full
 full:
 	@make
