@@ -19,25 +19,19 @@ all: $(TARGET)
 #----------------------------------------------------------#
 # Definition of arguments for compilation
 
-## コンパイラの指定
 CCX=g++
 
-## 最適化について
 OPTIMIZE=-o2
 
-## C++のバージョン指定
 CPP_VERSION=-std=c++11
 
 ## インクルードの指定 ( -Iでやるやつ )
 ICOMMAND=
 
-## リンカのフラグ
 LDFLAG=-O0
 
-## コンパイラフラグ
 CFLAG=$(OPTIMIZE) $(CPP_VERSION) $(ICOMMAND)
 
-## リンクする独自ソースコード
 LINKAGEFILES=$(SRCDIRPATH)\main.o
 
 #----------------------------------------------------------#
