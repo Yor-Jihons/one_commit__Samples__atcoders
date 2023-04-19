@@ -54,6 +54,11 @@ main.o:
 #----------------------------------------------------------#
 # 後始末
 
+.PHONY: test
+test:
+	make --file=testor test TESTOR=..\systems\utils\testor.exe TARGET=$(TARGET) -s
+
 ## 削除系
+.PHONY: clean
 clean:
 	@rm -rf $(LINKAGEFILES) $(TARGET)
