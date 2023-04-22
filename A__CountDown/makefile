@@ -1,59 +1,58 @@
 ﻿#----------------------------------------------------------#
-# ディレクトリパス定義
+# Definition of dir-path
 
-## srcディレクトリ
+
+## The directory "src"
 SRCDIRPATH=.\src
 
-## 生成する場所の指定
+## The directory "bin"
 BINDIRPATH=.\bin
 
 #----------------------------------------------------------#
-# 生成する対象の指定
+# Definition of the target
 
-## 対象のプロジェクト
+## The target project
 TARGET=$(BINDIRPATH)\Main
 
-## 対象リスト
 all: $(TARGET)
 
 #----------------------------------------------------------#
-# コンパイラ関連の定義
+# Definition of arguments for compilation
 
-## コンパイラの指定
 CCX=g++
 
-## 最適化について
 OPTIMIZE=-o2
 
-## C++のバージョン指定
 CPP_VERSION=-std=c++11
 
 ## インクルードの指定 ( -Iでやるやつ )
 ICOMMAND=
 
-## リンカのフラグ
 LDFLAG=-O0
 
-## コンパイラフラグ
 CFLAG=$(OPTIMIZE) $(CPP_VERSION) $(ICOMMAND)
 
-## リンクする独自ソースコード
 LINKAGEFILES=$(SRCDIRPATH)\main.o
 
 #----------------------------------------------------------#
-# コンパイル
+# Compilation
 
-## 対象プロジェクトのコンパイル
+## The compilation of the target
 $(TARGET): $(LINKAGEFILES)
 	$(CCX) $(CFLAG) -o $@ $<
 
-## 必要なオブジェクトファイルのコンパイル
+## The compilation of the file you need.
 main.o:
 	$(CCX) -c $<
 
 #----------------------------------------------------------#
-# 後始末
+# Other commands
+
+.PHONY: test
+test:
+	make --file=testor test TESTOR=..\systems\utils\testor.exe TARGET=$(TARGET) -s
 
 ## 削除系
+.PHONY: clean
 clean:
 	@rm -rf $(LINKAGEFILES) $(TARGET)
