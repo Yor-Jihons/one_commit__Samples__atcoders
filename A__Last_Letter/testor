@@ -1,0 +1,7 @@
+﻿TESTCASEDIR=.\test
+
+.PHONY: test
+test:
+	$(TESTOR) $(TARGET) $(TESTCASEDIR)\input1.txt $(TESTCASEDIR)\output1.txt
+	$(TESTOR) $(TARGET) $(TESTCASEDIR)\input2.txt $(TESTCASEDIR)\output2.txt
+
